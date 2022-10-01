@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 const FormSchema = z.object({
   email: z.string().email(),
   accept: z.literal(true, {
-    invalid_type_error: "You must accept Terms and Conditions.",
+    errorMap: () => ({ message: "You must accept Terms and Conditions." }),
   }),
   tier: z
     .string({ invalid_type_error: "Please select a payment tier." })
